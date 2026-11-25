@@ -1,9 +1,6 @@
-// Writes the entry line to $MAKEFUN_OUTPUT_DIR/entry.txt
+// worst superpower: one line, at most 140 characters
 import { mkdirSync, writeFileSync } from "node:fs";
-import { join } from "node:path";
-
-const line = "The ability to tell, from anywhere, exactly which pocket your keys are in — the instant after you have found them.";
-
-const outDir = process.env.MAKEFUN_OUTPUT_DIR ?? "/output";
-mkdirSync(outDir, { recursive: true });
-writeFileSync(join(outDir, "entry.txt"), line + "\n", "utf8");
+const dir = process.env.MAKEFUN_OUTPUT_DIR || "/output";
+const line = "The power to know exactly which pocket your keys are in — and to forget it the moment you reach for them.";
+mkdirSync(dir, { recursive: true });
+writeFileSync(dir + "/entry.txt", line + "\n", "utf8");
